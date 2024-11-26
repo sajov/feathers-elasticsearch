@@ -8,9 +8,10 @@
 
 [feathers-elasticsearch](https://github.com/feathersjs-ecosystem/feathers-elasticsearch/) is a database adapter for [Elasticsearch](https://www.elastic.co/products/elasticsearch). This adapter is not using any ORM, it is dealing with the database directly through the [elasticsearch.js client](https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/quick-start.html).
 
+To install the prerelease run:
 
 ```bash
-$ npm install --save elasticsearch feathers-elasticsearch
+$ npm install --save @elastic/elasticsearch feathers-elasticsearch@pre
 ```
 
 > __Important:__ `feathers-elasticsearch` implements the [Feathers Common database adapter API](https://docs.feathersjs.com/api/databases/common.html) and [querying syntax](https://docs.feathersjs.com/api/databases/querying.html).
@@ -21,13 +22,12 @@ The following bare-bones example will create a `messages` endpoint and connect t
 
 ```js
 const feathers = require('@feathersjs/feathers');
-const elasticsearch = require('elasticsearch');
+const elasticsearch = require('@elastic/elasticsearch');
 const service = require('feathers-elasticsearch');
 
 app.use('/messages', service({
   Model: new elasticsearch.Client({
-    host: 'localhost:9200',
-    apiVersion: '5.0'
+    node: 'http://localhost:9200'
   }),
   elasticsearch: {
     index: 'test',
@@ -61,12 +61,11 @@ const rest = require('@feathersjs/express/rest');
 const express = require('@feathersjs/express');
 
 const service = require('feathers-elasticsearch');
-const elasticsearch = require('elasticsearch');
+const elasticsearch = require('@elastic/elasticsearch');
 
 const messageService = service({
   Model: new elasticsearch.Client({
-    host: 'localhost:9200',
-    apiVersion: '6.0'
+    node: 'http://localhost:9200'
   }),
   paginate: {
     default: 10,
@@ -350,16 +349,14 @@ Let's consider the following mapping:
 ```javascript
 {
   mappings: {
-    doc: {
-      properties: {
-        text: {
-          type: 'text'
-        },
-        my_join_field: { 
-          type: 'join',
-          relations: {
-            post: 'comment' 
-          }
+    properties: {
+      text: {
+        type: 'text'
+      },
+      my_join_field: { 
+        type: 'join',
+        relations: {
+          post: 'comment' 
         }
       }
     }

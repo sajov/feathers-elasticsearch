@@ -8,11 +8,10 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x]
+        elasticsearch: ["6.8-SNAPSHOT", "7.x-SNAPSHOT", "8.18.0-SNAPSHOT", "9.0.0-SNAPSHOT"]
     steps:
-      - name: install curl
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y curl docker
+      - name: Checkout
+        uses: actions/checkout@v1
 
       - name: Configure sysctl limits
         run: |
@@ -21,18 +20,15 @@ jobs:
           sudo sysctl -w fs.file-max=262144
           sudo sysctl -w vm.max_map_count=262144
 
-      - uses: getong/elasticsearch-action@v1.3
+      - name: Start Elasticsearch
+        uses: ./elasticsearch
         with:
-          elasticsearch version: '8.11.0'
-          host port: 9200
-          container port: 9200
-          host node port: 9300
-          node port: 9300
-          discovery type: 'single-node'
-      - name: get the stats
-        run: curl -X Get "localhost:9200/_cluster/stats?pretty=true"
-      - name: check the elasticsearch whether is running or not
-        run: curl -X GET "localhost:9200/_cat/nodes?v&pretty"
+          security-enabled: false
+          stack-version: ${{ matrix.elasticsearch }}
+
+      - name: Elasticsearch is reachable
+        run: |
+          curl --verbose --show-error http://localhost:9200
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3

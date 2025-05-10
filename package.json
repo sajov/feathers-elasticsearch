@@ -5,6 +5,7 @@
   "homepage": "https://github.com/feathersjs-ecosystem/feathers-elasticsearch",
   "main": "lib/",
   "types": "types",
+  "type": "module",
   "keywords": [
     "feathers",
     "feathers-plugin"
@@ -56,6 +57,7 @@
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.15.17",
     "chai": "^5.2.0",
+    "eslint": "^9.26.0",
     "mocha": "^11.2.2",
     "pg": "^8.15.6",
     "shx": "^0.4.0",

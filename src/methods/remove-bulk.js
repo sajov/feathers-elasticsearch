@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 export function removeBulk(service, params) {
   const { find } = service.core;

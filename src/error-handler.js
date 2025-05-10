@@ -1,4 +1,4 @@
-import { errors } from "@feathersjs/errors";
+import { errors } from '@feathersjs/errors';
 
 export function errorHandler(error, id) {
   if (error instanceof errors.FeathersError) {

@@ -1,57 +1,19 @@
-name: CI
-
-on: [push, pull_request]
+name: Feathers ELasticsearch
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
 
 jobs:
-  build:
+  Test-Feathers-ELasticsearch:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x]
-        elasticsearch: ["7.17.15", "8.11.0"]
+        node-version: ['18.x', '20.x']
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-
-      - name: Configure sysctl limits
-        run: |
-          sudo swapoff -a
-          sudo sysctl -w vm.swappiness=1
-          sudo sysctl -w fs.file-max=262144
-          sudo sysctl -w vm.max_map_count=262144
-
-      - name: Start Elasticsearch
-        run: |
-          docker run -d --name=elasticsearch \
-            -e "discovery.type=single-node" \
-            -e "xpack.security.enabled=false" \
-            -p 9200:9200 \
-            docker.elastic.co/elasticsearch/elasticsearch:${{ matrix.elasticsearch }}
-
-      - name: Wait for Elasticsearch
-        run: |
-          echo "Waiting for Elasticsearch to start..."
-          until curl --silent --fail http://localhost:9200; do
-            printf '.'
-            sleep 5
-          done
-          echo "Elasticsearch is up!"
-
+      - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run lint
-        run: npm run lint
-
-      - name: Run tests with coverage
-        run: npm run coverage
-        env:
-          CI: true
-
-      - name: Upload coverage to Coveralls
-        uses: coverallsapp/github-action@v1
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test

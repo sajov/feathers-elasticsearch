@@ -47,7 +47,9 @@
     "@feathersjs/commons": "^5.0.34",
     "@feathersjs/errors": "^5.0.34",
     "@feathersjs/feathers": "^5.0.34",
-    "debug": "^4.4.0"
+    "@types/node": "^22.15.17",
+    "debug": "^4.4.0",
+    "typescript": "^5.8.3"
   },
   "peerDependencies": {
     "@elastic/elasticsearch": "^8.4.0"

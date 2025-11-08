@@ -29,10 +29,10 @@ npm install feathers-elasticsearch @elastic/elasticsearch --save
 ## Quick Start
 
 ```js
-const feathers = require('@feathersjs/feathers');
-const express = require('@feathersjs/express');
-const { Client } = require('@elastic/elasticsearch');
-const service = require('feathers-elasticsearch');
+import { feathers } '@feathersjs/feathers';
+import express from '@feathersjs/express';
+import { Client } from '@elastic/elasticsearch';
+import service from 'feathers-elasticsearch';
 
 const app = express(feathers());
 const esClient = new Client({ node: 'http://localhost:9200' });

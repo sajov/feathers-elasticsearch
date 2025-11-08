@@ -33,6 +33,7 @@
     "dev": "tsc --watch",
     "compile": "tsc",
     "publish": "git push origin --tags && npm run changelog && git push origin",
+    "prepublish": "npm run compile",
     "release:patch": "npm version patch && npm publish",
     "release:minor": "npm version minor && npm publish",
     "release:major": "npm version major && npm publish",
@@ -75,7 +76,6 @@
     "prettier": "^3.6.2",
     "shx": "^0.3.4",
     "sinon": "^21.0.0",
-    "sqlite3": "^5.1.2",
     "tsx": "^4.20.6",
     "typescript": "^4.8.4"
   }

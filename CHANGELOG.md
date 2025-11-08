@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/feathersjs/feathers-elasticsearch/compare/v3.1.0...v3.2.0) (2025-11-08)
+
+
+### Features
+
+* Update to latest Elasticsearch and latest Feathers compatibility ([cc37ef9](https://github.com/feathersjs/feathers-elasticsearch/commit/cc37ef98659275ecd1a1540e38703048bc44971e)), closes [#119](https://github.com/feathersjs/feathers-elasticsearch/issues/119)
+
 # Change Log
 
 ## [v3.1.0](https://github.com/feathersjs/feathers-elasticsearch/tree/v3.1.0) (2019-10-07)

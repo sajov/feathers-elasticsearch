@@ -1,3 +1,20 @@
+# [4.0.0](https://github.com/feathersjs/feathers-elasticsearch/compare/v3.1.0...v4.0.0) (2025-11-08)
+
+
+### chore
+
+* Update all dependencies ([#122](https://github.com/feathersjs/feathers-elasticsearch/issues/122)) ([d0aa567](https://github.com/feathersjs/feathers-elasticsearch/commit/d0aa567c11005458238dad1a674350a7fa200dad))
+
+
+### Features
+
+* Update to latest Elasticsearch and latest Feathers compatibility ([cc37ef9](https://github.com/feathersjs/feathers-elasticsearch/commit/cc37ef98659275ecd1a1540e38703048bc44971e)), closes [#119](https://github.com/feathersjs/feathers-elasticsearch/issues/119)
+
+
+### BREAKING CHANGES
+
+* Previous changes were accidentally released as a minor version, this should trigger a new release
+
 # [3.2.0](https://github.com/feathersjs/feathers-elasticsearch/compare/v3.1.0...v3.2.0) (2025-11-08)
 
 

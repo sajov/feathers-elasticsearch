@@ -1,6 +1,23 @@
 import { AdapterParams, PaginationOptions } from '@feathersjs/adapter-commons'
 import { Client } from '@elastic/elasticsearch'
 
+import type { estypes } from '@elastic/elasticsearch'
+
+type SearchRequest = estypes.SearchRequest;
+type SearchResponse = estypes.SearchResponse;
+type GetRequest = estypes.GetRequest;
+type GetResponse = estypes.GetResponse;
+type IndexRequest = estypes.IndexRequest;
+type IndexResponse = estypes.IndexResponse;
+type UpdateRequest = estypes.UpdateRequest;
+type UpdateResponse = estypes.UpdateResponse;
+type DeleteRequest = estypes.DeleteRequest;
+type DeleteResponse = estypes.DeleteResponse;
+type BulkRequest = estypes.BulkRequest;
+type BulkResponse = estypes.BulkResponse;
+type MgetRequest = estypes.MgetRequest;
+type MgetResponse = estypes.MgetResponse;
+
 import type { SecurityConfig } from './utils/security'
 
 // Error Types

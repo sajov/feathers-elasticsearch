@@ -18,6 +18,23 @@ type BulkResponse = estypes.BulkResponse;
 type MgetRequest = estypes.MgetRequest;
 type MgetResponse = estypes.MgetResponse;
 
+export type {
+  SearchRequest,
+  SearchResponse,
+  GetRequest,
+  GetResponse,
+  IndexRequest,
+  IndexResponse,
+  UpdateRequest,
+  UpdateResponse,
+  DeleteRequest,
+  DeleteResponse,
+  BulkRequest,
+  BulkResponse,
+  MgetRequest,
+  MgetResponse
+}
+
 import type { SecurityConfig } from './utils/security'
 
 // Error Types

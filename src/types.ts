@@ -1,40 +1,7 @@
 import { AdapterParams, PaginationOptions } from '@feathersjs/adapter-commons'
 import { Client } from '@elastic/elasticsearch'
-import type {
-  SearchRequest,
-  SearchResponse,
-  GetRequest,
-  GetResponse,
-  IndexRequest,
-  IndexResponse,
-  UpdateRequest,
-  UpdateResponse,
-  DeleteRequest,
-  DeleteResponse,
-  BulkRequest,
-  BulkResponse,
-  MgetRequest,
-  MgetResponse
-} from '@elastic/elasticsearch/lib/api/types'
-import type { SecurityConfig } from './utils/security'
 
-// Re-export commonly used ES types
-export type {
-  SearchRequest,
-  SearchResponse,
-  GetRequest,
-  GetResponse,
-  IndexRequest,
-  IndexResponse,
-  UpdateRequest,
-  UpdateResponse,
-  DeleteRequest,
-  DeleteResponse,
-  BulkRequest,
-  BulkResponse,
-  MgetRequest,
-  MgetResponse
-}
+import type { SecurityConfig } from './utils/security'
 
 // Error Types
 export interface ElasticsearchErrorMeta {
